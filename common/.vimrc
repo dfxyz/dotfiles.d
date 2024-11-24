@@ -12,8 +12,6 @@ function! s:is_plugin_installed(plugin_name)
 endfunction
 let s:plugin_installed__CandyPaper = s:is_plugin_installed("CandyPaper.vim")
 let s:plugin_installed__nerdtree = s:is_plugin_installed("nerdtree")
-let s:plugin_installed__coc = s:is_plugin_installed("coc.nvim")
-let s:plugin_installed__copilot = s:is_plugin_installed("copilot.vim")
 
 syntax on
 if has("termguicolors")
@@ -117,61 +115,23 @@ let g:mapleader = " "
 vnoremap p "_dgP
 vnoremap P "_dgP
 nnoremap Y y$
-if s:plugin_installed__coc
-  nnoremap <silent> K :call CocActionAsync("doHover")<CR>
-  nnoremap <silent> gd <Plug>(coc-definition)
-  nnoremap <silent> gD <Plug>(coc-declaration)
-  nnoremap <silent> gi <Plug>(coc-implementation)
-  nnoremap <silent> gt <Plug>(coc-type-definition)
-  nnoremap <silent> gr <Plug>(coc-references)
-  nnoremap <silent> gs :CocList symbols<CR>
-  nnoremap <silent> [d <Plug>(coc-diagnostic-prev)
-  nnoremap <silent> ]d <Plug>(coc-diagnostic-next)
-  nnoremap <silent> [e <Plug>(coc-diagnostic-prev-error)
-  nnoremap <silent> ]e <Plug>(coc-diagnostic-next-error)
-endif
-
-if s:plugin_installed__coc
-  nnoremap <silent> <F2> :call CocActionAsync("rename")<CR>
-endif
 if s:plugin_installed__nerdtree
   nnoremap <silent> <F3> :NERDTreeToggle<CR>
 endif
 nnoremap <F4> :tabnew<CR>
 nnoremap <F12> :terminal<CR>
-if s:plugin_installed__coc
-  inoremap <silent><expr> <C-Space> coc#refresh()
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
-  nnoremap <silent> <M-CR> <Plug>(coc-codeaction-cursor)
-endif
 nnoremap <C-S> :update<CR>
 inoremap <C-S> <C-O>:update<CR>
 vnoremap <C-C> y
 nnoremap <C-V> gP
 vnoremap <C-V> "_dgP
 inoremap <C-V> <C-R><C-R>+
-if s:plugin_installed__copilot
-  inoremap <C-L> <Plug>(copilot-accept-word)
-  inoremap <C-S-L> <Plug>(copilot-accept-line)
-endif
 nnoremap <M-j> gj
 nnoremap <M-k> gk
 vnoremap <M-j> gj
 vnoremap <M-k> gk
 inoremap <M-j> <C-O>gj
 inoremap <M-k> <C-O>gk
-
-if s:plugin_installed__coc
-  nnoremap <silent> <leader>ci :call CocActionAsync("showIncomingCalls")<CR>
-  nnoremap <silent> <leader>co :call CocActionAsync("showOutgoingCalls")<CR>
-  nnoremap <silent> <leader>fm <Plug>(coc-format)
-  vnoremap <silent> <leader>fm <Plug>(coc-format-selected)
-  nnoremap <silent> <leader>oi :call CocActionAsync("organizeImport")<CR>
-  nnoremap <silent> <leader>ol :call CocActionAsync("showOutline")<CR>
-  nnoremap <silent> <leader>rf :call CocActionAsync("refactor")<CR>
-  nnoremap <silent> <leader>ti :call CocActionAsync("showSuperTypes")<CR>
-  nnoremap <silent> <leader>to :call CocActionAsync("showSubTypes")<CR>
-endif
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
