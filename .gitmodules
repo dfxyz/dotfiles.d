@@ -1,0 +1,17 @@
+[submodule "common/vimpack/CandyPaper.vim"]
+	path = common/vimpack/CandyPaper.vim
+	url = https://github.com/dfxyz/CandyPaper.vim
+[submodule "common/vimpack/vim-easymotion"]
+	path = common/vimpack/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "common/vimpack/nerdtree"]
+	path = common/vimpack/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "common/vimpack/coc.nvim"]
+	path = common/vimpack/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+    branch = release
+[submodule "common/vimpack/copilot.vim"]
+	path = common/vimpack/copilot.vim
+	url = https://github.com/github/copilot.vim
+    branch = release
