@@ -1,0 +1,25 @@
+set clipboard^=unnamedplus
+set belloff=all
+
+set incsearch
+set hlsearch
+
+set ideajoin
+set easymotion
+
+nnoremap Y y$
+vnoremap p "_dgP
+vnoremap P "_dgP
+nnoremap gd <Action>(GotoDeclaration)
+nnoremap gt <Action>(GotoTypeDeclaration)
+nnoremap gi <Action>(GotoImplementation)
+nnoremap [e <Action>(GotoPreviousError)
+nnoremap ]e <Action>(GotoNextError)
+
+sethandler <C-S> a:ide
+sethandler <C-V> a:ide
+vnoremap <C-C> y
+
+let mapleader=" "
+nnoremap <leader>ch <Action>(CallHierarchy)
+nnoremap <leader>th <Action>(TypeHierarchy)

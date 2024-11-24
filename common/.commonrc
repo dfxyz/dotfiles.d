@@ -1,0 +1,60 @@
+# vim: ft=sh
+
+stty -ixon -ixoff # disable flow control
+
+[[ $OS == "Windows_NT" ]] && on_windows=true || on_windows=false
+
+[[ $TERM == 'linux' ]] && export LANG=en_US.UTF-8 || export LANG=zh_CN.UTF-8
+
+export EDITOR='vim'
+
+if $on_windows; then
+    export CHERE_INVOKING=1
+    export MSYS=winsymlinks:nativestrict
+    export MSYS2_PATH_TYPE=inherit
+    export MSYSTEM=UCRT64
+fi
+
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto -hF'
+alias la='ls -A'
+alias ll='ls -la'
+alias vi='vim'
+
+[[ -z $MSYSTEM ]] && [[ $EUID != 0 ]] && sudo='sudo ' && alias sudo='sudo '
+
+[[ -n $(command -v systemctl) ]] && alias sc="${sudo}systemctl"
+
+if [[ -n $(command -v pacman) ]]; then
+    alias pac="${sudo}pacman -S"
+    alias pacs='pacman -Ss'
+    alias pacy="${sudo}pacman -Sy"
+    alias pacu="${sudo}pacman -Syu"
+    alias pacr="${sudo}pacman -Rsn"
+    alias paci='pacman -Si'
+    alias pacl='pacman -Ql | awk "{print \$1}" | uniq | less'
+fi
+
+apt=$(command -v apt)
+if [[ -n $apt ]]; then
+    alias apt="${sudo}${apt} install"
+    alias apts="${apt} search"
+    alias apty="${sudo}${apt} update"
+    alias aptu="${sudo}${apt} upgrade"
+    alias aptr="${sudo}${apt} purge"
+    alias apti="${apt} show"
+    alias aptl="${apt} list"
+fi
+unset apt
+
+alias sshl="cat ~/.ssh/config"
+alias sshe="$EDITOR ~/.ssh/config"
+if $on_windows; then
+    alias hide="~/.scripts/hide.sh"
+    alias unhide="~/.scripts/unhide.sh"
+fi
+
+unset sudo
+
+[[ -f ~/.commonrc.local ]] && source ~/.commonrc.local
