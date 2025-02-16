@@ -151,8 +151,8 @@ nnoremap <C-V> gP
 vnoremap <C-V> "_dgP
 inoremap <C-V> <C-R><C-R>+
 if s:plugin_installed__copilot
-  inoremap <C-L> <Plug>(copilot-accept-word)
-  inoremap <C-S-L> <Plug>(copilot-accept-line)
+  inoremap <C-Right> <Plug>(copilot-accept-word)
+  inoremap <C-M-Right> <Plug>(copilot-accept-line)
 endif
 nnoremap <M-j> gj
 nnoremap <M-k> gk
