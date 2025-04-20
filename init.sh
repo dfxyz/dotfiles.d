@@ -6,13 +6,13 @@ dotfiles=$(ls $PWD/common/.*)
 
 for file in $dotfiles; do
     if [[ -f $file ]]; then
-        ln -sf $file ~/
+        ln -sf $file $HOME/
     fi
 done
 
-mkdir -p ~/.vim/pack/default/
-[[ -e ~/.vim/pack/default/start ]] && rm -rf ~/.vim/pack/default/start
-ln -s $PWD/common/vimpack ~/.vim/pack/default/start
+mkdir -p $HOME/.vim/pack/default/
+[[ -e $HOME/.vim/pack/default/start ]] && rm -rf $HOME/.vim/pack/default/start
+ln -s $PWD/common/vimpack $HOME/.vim/pack/default/start
 
-[[ -e ~/.scripts ]] && rm ~/.scripts
-ln -s $PWD/common/scripts ~/.scripts
+[[ -e $HOME/.scripts ]] && rm $HOME/.scripts
+ln -s $PWD/common/scripts $HOME/.scripts
