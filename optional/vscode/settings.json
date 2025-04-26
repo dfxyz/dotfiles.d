@@ -1,6 +1,7 @@
 {
     "workbench.colorTheme": "Quiet Light",
     "workbench.editor.tabActionCloseVisibility": false,
+    "workbench.tree.indent": 16,
     "editor.fontFamily": "'Fira Code', 'Noto Sans CJK SC', 'Microsoft YaHei'",
     "editor.fontWeight": "500",
     // "editor.fontSize": 14
