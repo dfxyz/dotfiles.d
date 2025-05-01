@@ -2,6 +2,8 @@
   <action id="CollapseSelection" />
   <action id="EditorMoveToPageBottom" />
   <action id="EditorMoveToPageTop" />
+  <action id="EditorNextWord" />
+  <action id="EditorPreviousWord" />
   <action id="MainMenuButton.ShowMenu" />
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="alt right" />
